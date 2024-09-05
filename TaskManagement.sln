@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement", "src\TaskManagement\TaskManagement.csproj", "{F391AF6B-7E6A-4D34-B91C-499943E33AAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A850AF8D-78A1-43F9-B39C-A8001705F28C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F391AF6B-7E6A-4D34-B91C-499943E33AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F391AF6B-7E6A-4D34-B91C-499943E33AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F391AF6B-7E6A-4D34-B91C-499943E33AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F391AF6B-7E6A-4D34-B91C-499943E33AAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F391AF6B-7E6A-4D34-B91C-499943E33AAB} = {A850AF8D-78A1-43F9-B39C-A8001705F28C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E9389F9-89C8-42B4-A5CA-13C817B22B24}
+	EndGlobalSection
+EndGlobal
