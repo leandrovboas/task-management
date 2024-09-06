@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  TaskManagement:
+    image: TaskManagement
+    build:
+      context: .
+    ports:
+      - "5091:80"
+    networks:
+      - TaskManagement-network
+    depends_on:
+      - "postgres"
+- 
+  postgres:
+    image: postgres
+    volumes:
+      - ./01-basegeografica.sql:/docker-entrypoint-initdb.d/01-basegeografica.sql
+      - ./02-basegeografica.sql:/docker-entrypoint-initdb.d/02-basegeografica.sql
+    environment:
+      POSTGRES_PASSWORD: "Postgres2024!"
+    ports:
+      - "5432:5432"
+- 
+
+networks: 
+    TaskManagement-network:
+        driver: bridge

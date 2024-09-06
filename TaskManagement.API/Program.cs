@@ -7,6 +7,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+services.AddDbContext<ApplicationDbContext>(options =>
+       options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+// Repositories
+services.AddScoped<IProjectRepository, ProjectRepository>();
+services.AddScoped<ITaskRepository, TaskRepository>();
+
+// Use Cases
+services.AddScoped<CreateProjectUseCase>();
+services.AddScoped<AddTaskUseCase>();
+services.AddScoped<UpdateTaskUseCase>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
