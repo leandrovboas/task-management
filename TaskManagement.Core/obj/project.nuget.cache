@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H6AW/jshaRGGJyjkjfGQyBOzjO3MCU5b16UCb6lAiXCRZgz85U5SkcmrFt+T+w3NUcVuPCdc+/qMFJLW51S3hg==",
+  "dgSpecHash": "549uu0IZMHXHsE5zZiVtqTRYRtRWdN4HVpaNPdkPOu+vKiUijy/X9QmJlzxsl7o6uDeH3Hfv6Nx0uIGattDipg==",
   "success": true,
-  "projectFilePath": "\\\\wsl.localhost\\Ubuntu\\home\\leandrovboas\\source\\github\\task-management\\TaskManagement.Core\\TaskManagement.Core.csproj",
+  "projectFilePath": "C:\\source\\github\\task-management\\TaskManagement.Core\\TaskManagement.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

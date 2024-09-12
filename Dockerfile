@@ -1,16 +1,20 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# syntax=docker/dockerfile:1
+
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
+
+COPY . /source
+
+WORKDIR /source/TaskManagement.API
+
+ARG TARGETARCH
+
+RUN --mount=type=cache,id=nuget,target=/root/.nuget/packages \
+    dotnet publish -a ${TARGETARCH/amd64/x64} --use-current-runtime --self-contained false -o /app
+    
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS final
 WORKDIR /app
 
-COPY *.csproj ./
-RUN dotnet restore
+# Copy everything needed to run the app from the "build" stage.
+COPY --from=build /app .
 
-
-COPY . .
-RUN dotnet publish  -c Release -o /app/publish
-
-
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
-WORKDIR /app
-COPY --from=publish /app/publish .
-
-ENTRYPOINT ["dotnet", "TaskManagement.Api.dll"]
+ENTRYPOINT ["dotnet", "TaskManagement.API.dll"]

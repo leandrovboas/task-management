@@ -1,32 +1,46 @@
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using System.Text.Json;
+using System.Net.Mime;
+using TaskManagement.API.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-services.AddDbContext<ApplicationDbContext>(options =>
-       options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDependencyInjection(builder.Configuration);
 
-// Repositories
-services.AddScoped<IProjectRepository, ProjectRepository>();
-services.AddScoped<ITaskRepository, TaskRepository>();
-
-// Use Cases
-services.AddScoped<CreateProjectUseCase>();
-services.AddScoped<AddTaskUseCase>();
-services.AddScoped<UpdateTaskUseCase>();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
+    app.UseStaticFiles();
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options => 
+    {
+        options.InjectStylesheet("/swagger-ui/custom.css");
+    });
 }
+
+app.UseHealthChecks("/health");
+app.UseHealthChecks("/health-json",
+    new HealthCheckOptions()
+    {
+        ResponseWriter = async (context, report) =>
+        {
+            var result = JsonSerializer.Serialize(
+                            new
+               {
+                   currentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                   statusApplication = report.Status.ToString(),
+               });
+
+            context.Response.ContentType = MediaTypeNames.Application.Json;
+            await context.Response.WriteAsync(result);
+        }
+    });
 
 app.UseHttpsRedirection();
 

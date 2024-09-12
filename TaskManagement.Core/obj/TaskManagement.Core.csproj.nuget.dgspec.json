@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\wsl.localhost\\Ubuntu\\home\\leandrovboas\\source\\github\\task-management\\TaskManagement.Core\\TaskManagement.Core.csproj": {}
+    "C:\\source\\github\\task-management\\TaskManagement.Core\\TaskManagement.Core.csproj": {}
   },
   "projects": {
-    "\\\\wsl.localhost\\Ubuntu\\home\\leandrovboas\\source\\github\\task-management\\TaskManagement.Core\\TaskManagement.Core.csproj": {
+    "C:\\source\\github\\task-management\\TaskManagement.Core\\TaskManagement.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\wsl.localhost\\Ubuntu\\home\\leandrovboas\\source\\github\\task-management\\TaskManagement.Core\\TaskManagement.Core.csproj",
+        "projectUniqueName": "C:\\source\\github\\task-management\\TaskManagement.Core\\TaskManagement.Core.csproj",
         "projectName": "TaskManagement.Core",
-        "projectPath": "\\\\wsl.localhost\\Ubuntu\\home\\leandrovboas\\source\\github\\task-management\\TaskManagement.Core\\TaskManagement.Core.csproj",
+        "projectPath": "C:\\source\\github\\task-management\\TaskManagement.Core\\TaskManagement.Core.csproj",
         "packagesPath": "C:\\Users\\leandro.boas\\.nuget\\packages\\",
-        "outputPath": "\\\\wsl.localhost\\Ubuntu\\home\\leandrovboas\\source\\github\\task-management\\TaskManagement.Core\\obj\\",
+        "outputPath": "C:\\source\\github\\task-management\\TaskManagement.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\leandro.boas\\AppData\\Roaming\\NuGet\\NuGet.Config",
